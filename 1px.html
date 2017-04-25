@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+	<title>1px border</title>
+</head>
+<style>
+	/*https://www.zhihu.com/question/22374530*/
+    /*http://litten.me/2014/02/22/thinner-than-1px-border/*/
+    body,html{
+    	margin:0;
+    	padding:0;
+    }
+    .test{
+    	height:10px;
+    }
+	.scale-1px{
+  		position: relative;
+	}
+	@media (-webkit-min-device-pixel-ratio:1.5), (min-device-pixel-ratio: 1.5){
+	  .scale-1px:after{
+		   content:"";
+		   position: absolute;
+		   bottom:0px;
+		   left:0px;
+		   right:0px;
+		   border-bottom:1px solid red;
+		   -webkit-transform:scaleY(.7);
+		   -webkit-transform-origin:0 0;
+		}
+	}
+	@media (-webkit-min-device-pixel-ratio:2), (min-device-pixel-ratio:2){
+	  .scale-1px:after{
+		   content:"";
+		   position: absolute;
+		   bottom:0px;
+		   left:0px;
+		   right:0px;
+		   border-bottom:1px solid red;
+		   -webkit-transform:scaleY(.5);
+		   -webkit-transform-origin:0 0;
+		}
+	}
+</style>
+<body>
+	<div class="test"></div>
+	<div class="scale-1px"></div>
+</body>
+</html>
